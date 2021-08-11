@@ -35,4 +35,35 @@
 
 def playstep2(hand, dice):
 	# your code goes here
-	pass
+	print(hand, dice)
+	l=[]
+	res=[]
+	while(hand>0):
+		r=hand%10
+		hand=hand//10
+		if(r in l):
+			res=[r, r]
+			res.append(dice%10)
+			dice=dice//10
+			res.sort()
+			print(res[0]+res[1]*10+res[2]*100, dice)
+			return (res[0]+res[1]*10+res[2]*100, dice)
+		else:
+			l.append(r)
+	while(len(res)<2):
+		d=dice%10
+		res.append(d)
+		dice=dice//10
+	print(res)
+	res.append(max(l))
+	print(res)
+	res.sort()
+	# print(res[0]+res[1]*10+res[2]*100, dice)
+	return (res[0]+res[1]*10+res[2]*100, dice)
+
+print(playstep2(544, 456))
+# assert(playstep2(544, 456) == (644, 45))//////
+# assert(playstep2(413, 2312) == (421, 23))////
+# assert(playstep2(413, 2345) == (544, 23))///
+# assert(playstep2(544, 23) == (443, 2))/////
+# assert(playstep2(544, 456) == (644, 45))//
