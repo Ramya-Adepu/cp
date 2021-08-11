@@ -5,7 +5,6 @@
 # or if x is greater than the upper bound, return the upper bound.
 
 def fun_getinrange(x, bound1, bound2):
-	# your code goes here
 	if(x<=bound1 and x<=bound2):
 		return min(bound1, bound2)
 	elif(x>=bound2 and x>=bound1):
