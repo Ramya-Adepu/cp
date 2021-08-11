@@ -6,4 +6,4 @@
 
 def fun_distance(x1, y1, x2, y2):
 	# your code goes here
-	return 0
+	return int(((abs(x1-x2)**2)+(abs(y1-y2)**2))**(1/2))
