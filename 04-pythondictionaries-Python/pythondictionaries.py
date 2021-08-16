@@ -33,11 +33,18 @@ Asian City - Country"""
 
 def sortUSA():
     '''Return all the cities in the USA in alphabetical order'''
-    pass
+    return locations['North America']['USA']
 
 def alphaAsia():
     '''Return all the cities in Asia continent in alphabetical order'''
-    pass
+    s=locations['Asia']
+    l=[]
+    for k,v in s.items():
+        for i in v:
+            ans=i+" - "+k
+            l.append(ans)
+    return l
 
 # Note: Check for test cases to understand the output format.
 locations = {'North America': {'USA': ['Mountain View']}}
+locations['Asia']={'India':['Bangalore']}
