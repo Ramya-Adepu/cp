@@ -11,8 +11,33 @@
 
 
 def fun_applycaesarcipher(msg, shift):
-	return ""
-
-
+	s=""
+	# print(ord("A"), ord("Z"), ord("a"), ord("z"))
+	# A-65, Z-90, a-97, z-122
+	for i in  msg:
+		r=ord(i)
+		if((r>=65 and r<=90) or (r>=97  and r<=122)):
+			if(r+shift<65):
+				b=65-(r+shift+1)
+				s+=chr(90-b)
+			elif(r<=90 and r+shift>90):
+				b=r+shift-90-1
+				s+=chr(65+b)
+			elif(r>=97 and r+shift<97):
+				b=97-(r+shift+1)
+				s+=chr(122-b)
+			elif(r+shift>122):
+				b=r+shift-122-1
+				s+=chr(97+b)
+			else:
+				s+=chr(r+shift)
+		else:
+			s+=i	
+	return s
+print(fun_applycaesarcipher("abcdxyz", 3))
+#     ("We Attack At Dawn", 1, "Xf Buubdl Bu Ebxo"), ("zodiac", -2, "xmbgya"),
+# ("ABCDXYZ", -3,"XYZAUVW"),("ABCDXYZ", 3,"DEFGABC"), ("abcdxyz", -3,"xyzauvw"),
+# ("abcdxyz", 3,"defgabc")
+# ])
 
 
