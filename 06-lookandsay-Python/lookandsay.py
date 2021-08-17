@@ -11,4 +11,26 @@
 
 def lookandsay(a):
 	# Your code goes here
-	pass
+	i=0
+	r=[]
+	cnt=1
+	if(len(a)>0):
+		while(i<len(a)):
+			print(a[i])
+			if(i+1==len(a)):
+				r.append((cnt, a[i]))
+			elif(a[i]!=a[i+1]):
+				r.append((cnt, a[i]))
+				cnt=1
+			else:
+				cnt+=1
+			i+=1
+		return r
+	else:
+		return []		
+print(lookandsay([3,3,8,-10,-10,-10]))
+# ([], []), 
+# ([1, 1, 1], [(3, 1)]), 
+# ([-1, 2, 7], [(1, -1), (1, 2), (1, 7)]), 
+# ([3,3,8,-10,-10,-10], [(2,3),(1,8),(3,-10)]), 
+# ([3,3,8,3,3,3,3], [(2,3),(1,8),(4,3)])
