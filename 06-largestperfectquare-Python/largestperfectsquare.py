@@ -7,6 +7,17 @@
 # Hint: you may wish to use a similar approach to how you solved isPerfectSquare on the hw.
 # Another hint: This can be written using just one or two lines of Python.
 
+import math
 def largestperfectsquare(n):
 	# your code goes here
-	pass
+	m=int(math.sqrt(n))
+	s=m*m
+	return s
+
+print(largestperfectsquare(5))
+	# (24, 16),
+	# (25, 25),
+	# (26, 25),
+	# (14, 9),
+	# (2, 1),
+	# (5, 4)
