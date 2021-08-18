@@ -10,4 +10,9 @@
 
 def gcd(m, n):
 	# your code goes here
-	pass
+	if(m==0):
+		return n
+	else:
+		return gcd(n%m, m)
+
+print(gcd(9, 9))
