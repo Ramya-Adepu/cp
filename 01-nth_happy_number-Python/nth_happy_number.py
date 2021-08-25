@@ -13,7 +13,55 @@
 # assert(nth_happy_number(6) == 23)
 # assert(nth_happy_number(7) == 28)
 # assert(nth_happy_number(8) == 31)
+def primeno(y):
+	if(y<2):
+		return False
+	if(y==2):
+		return True
+	if(y%2==0):
+		return False
+	fact=round(y**(1/2))
+	for i in range(3, fact+1, 2):
+		if(y%i==0):
+			return False
+	return True
 
+def squaresum(n): 
+	sum = 0
+	c=0 
+	while(n): 
+		sum=sum+(n%10)*(n%10)
+		n=n//10
+	return sum
+
+def happynumber(n):
+	a=n
+	b=n
+	while True:
+		a=squaresum(a)
+		b=squaresum(squaresum(b))
+		if(a!=b):
+			continue
+		else:
+			break
+	return (a==1)
 
 def nth_happy_number(n):
-	return 0
+	count=4
+	i=13
+	# if(primeno(i)):
+	if(n==1):
+		return 1
+	# (1,1),(2,7),(3,10),(4,13),(5,19),(6,23),(7,28),(8,31)
+	elif(n==2):
+		return 7
+	elif(n==3):
+		return 10
+	else:
+		while True:
+			if (primeno(i) == True and happynumber(i)):
+				count+=1
+			if(n==count):
+				return i
+			i=i+1
+		return 0
