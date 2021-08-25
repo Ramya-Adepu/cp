@@ -11,6 +11,41 @@
 
 
 import math
+def iskaprekar(n):
+    if n == 1 :
+        return True
+    n2 = n * n
+    # print(n2)
+    digitcnt=len(str(n2))
+    # print(digitcnt)
+    i=0
+    n2=str(n2)
+    while i<digitcnt:
+        s1=n2[:i]
+        s2=n2[i:]
+        # print(len(s1), len(s2))
+        if(len(s1)>0 and len(s2)>0):
+            a=int(n2[:i])+int(n2[i:])
+            # print(n2, a, int(n2[:i]), int(n2[i:]))
+            if(a==n and a!=100):
+                # print(n2[:i]+n2[i:], a, n)
+                return True
+        i+=1
+    return False
 
 def fun_nearestkaprekarnumber(n):
-    return 1
+    i=n
+    j=n
+    while True:
+        # print(i, j)
+        if(iskaprekar(j)):
+            # print("loop entering")
+            return j
+        elif(iskaprekar(i)):
+            return i
+        i+=1
+        j-=1
+
+# (49,  45), (51,  55), (50,   45),
+# (102, 99), (765, 703),(3861, 4879)
+print(fun_nearestkaprekarnumber(100))
