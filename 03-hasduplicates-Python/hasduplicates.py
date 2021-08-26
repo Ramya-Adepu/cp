@@ -5,4 +5,11 @@
 
 def hasduplicates(L):
 	# Your code goes here
-	pass
+    l1=[]
+    for i in L:
+        for j in i:
+            if j not in l1:
+                l1.append(j)
+            else:
+                return True
+    return False
