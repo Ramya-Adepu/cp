@@ -18,6 +18,31 @@
 # Hint: Do not slice the list L, but rather adjust the indexes into L. 
 
 def recursion_binarysearchvalues(L, v):
-	# Your codes goes here
-	pass
+    return binarysearch(L,v,0,len(L)-1)
+    
+def binarysearch(L,v,lo,hi,l1=[]):
+    mid=(lo+hi)//2
+    if (lo<hi) and L[mid]==v:
+        l1.append((mid,L[mid]))
+        return l1
+    elif lo==hi:
+        l1.append((mid,L[mid]))
+        return l1
+    elif v<L[mid]:
+        l1.append((mid,L[mid]))
+        hi=mid-1
+    else:
+        l1.append((mid,L[mid]))
+        lo=mid+1
+    return binarysearch(L,v,lo,hi,l1)
 	
+L = ['a', 'c', 'f', 'g', 'm', 'q']
+print(recursion_binarysearchvalues(L, 'b'))
+	# ('a', [(2,'f'), (0,'a')]),
+	# ('c', [(2,'f'), (0,'a'), (1,'c')]),
+	# ('f', [(2,'f')]),
+	# ('g', [(2,'f'), (4, 'm'), (3, 'g')]),
+	# ('m', [(2,'f'), (4, 'm')]),
+	# ('q', [(2,'f'), (4, 'm'), (5, 'q')]),
+	# ('z', [(2,'f'), (4, 'm'), (5, 'q')]),
+	# ('b', [(2,'f'), (0,'a'), (1,'c')])
