@@ -11,4 +11,18 @@
 
 def shortenlongruns(L, k):
 	# Your code goes here
-	pass
+	c = 0
+	d = {}
+	lst = []
+	v = k-1
+	for i in range(len(L)-v):
+		if L[i] == L[i + 1] and L[i + 1] == L[i + 2]:
+			ele = L[i]
+	for j in L:
+		if j == ele:
+			c = c + 1
+		if c >= k and j == ele:
+			continue
+		else:
+			lst.append(j)
+	return lst
