@@ -9,5 +9,21 @@
 # for primality (and you may need to think about that hint for a while for it to make sense!).
 
 
+import math
+def prime(n):
+    if n < 2:
+        return False
+    for i in range(2 , n):
+        if (n % i == 0):
+            return False
+    return True
+
 def fun_nth_carolprime(n):
-    return 0
+    v = 2
+    count = 0
+    while(count <= n):
+        res = ((2 ** v - 1) ** 2 - 2)
+        if (prime(res)):
+            count += 1
+        v += 1    
+    return res
