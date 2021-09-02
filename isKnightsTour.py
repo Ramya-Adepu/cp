@@ -27,11 +27,22 @@
 #           [ 52, 47, 56, 45, 54,  5, 22, 13 ],
 #         ]
 # assert(isKnightsTour(board)==True)
-
+def knightsTour(l, rows, cols):
+    row = len(l)
+    col = len(l[0])
+    if (l[(rows+2) % row][(cols+1) % col] == l[rows][cols]+1) or (l[(rows+2) % row][abs(cols-1) % col] == l[rows][cols]+1) or (l[abs(rows-2) % row][abs(cols+1) % col] == l[rows][cols]+1) or (l[(rows+1) % row][(cols+2) % col] == l[rows][cols]+1) or (l[(rows+1) % row][abs(cols-2) % col] == l[rows][cols]+1) or (l[abs(rows-1) % row][(cols+2) % col] == l[rows][cols]+1) or (l[abs(rows-1) % row][abs(cols-2) % col] == l[rows][cols]+1) or (l[abs(rows-2) % row][(cols-1) % col] == l[rows][cols]+1):
+        return True
+    return False
 
 def isKnightsTour(board):
     # Your code goes here...
-    pass
+    for i in range(len(board)*len(board[0])):
+        for j in range(len(board)):
+            for k in range(len(board[0])):
+                if i == board[j][k]:
+                    if not knightsTour(board, j, k):
+                        return False
+    return True
 
 board = [
             [  1, 60, 39, 34, 31, 18,  9, 64 ],
