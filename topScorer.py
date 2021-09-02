@@ -16,7 +16,28 @@
 
 def topScorer(data):
     # Your code goes here...
-    return ""
+    if data == '':
+        return None
+    else:
+        name = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        s = 0
+        pname = ''
+        for i in data.splitlines():
+            print(i)
+            currscore = 0
+            currname = ''
+            for j in i.split(','):
+                if j[0] in name or j[0] in name.lower():
+                    currname = j
+                else:
+                    currscore += int(j)
+                if currscore > s:
+                    s = currscore
+                    pname = currname
+                elif currscore == s:
+                    if currname not in pname:
+                        pname+=","+currname
+        return pname
 
 data = '''\
 Fred,10,20,30,40
